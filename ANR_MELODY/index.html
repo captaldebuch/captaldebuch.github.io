@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELODY Project Journal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --melody-blue: #0d6efd;
+            --melody-dark: #1a1a2e;
+            --melody-light: #f8f9fa;
+        }
+        body {
+            background-color: #f5f6fa;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, var(--melody-dark) 0%, #16213e 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 4px solid var(--melody-blue);
+        }
+        .journal-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            transition: transform 0.2s ease;
+        }
+        .journal-card:hover {
+            transform: translateY(-2px);
+        }
+        .date-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--melody-blue);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .milestone-dot {
+            height: 12px;
+            width: 12px;
+            background-color: var(--melody-blue);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .status-running { color: #198754; font-weight: bold; }
+        .log-entry {
+            border-left: 3px solid #dee2e6;
+            padding-left: 1.5rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        .log-entry::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            background-color: white;
+            border: 3px solid var(--melody-blue);
+            border-radius: 50%;
+        }
+        .log-entry:last-child { border-left: none; }
+        footer {
+            padding: 2rem 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        .logo-box {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box img {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-bg shadow-sm">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">MELODY Project Journal</h1>
+                <p class="lead opacity-75">Development log, research milestones, and pipeline updates for the ANR TSIA MELODY Project.</p>
+                <div class="mb-3 text-white-50 small">
+                    <span class="me-3"><i class="bi bi-people-fill me-1"></i> <strong>Team:</strong> Damien Colas (CNRS), Xavier Fresquet (SU), Raphael Cousin (SU), Isabelle Bloch (SU), Benjamin Piwowarski (CNRS)</span>
+                </div>
+                <div class="d-flex gap-2 mt-3">
+                    <span class="badge bg-primary">ANR-24-CE38</span>
+                    <span class="badge bg-light text-dark">Q2 2026 Phase: Project Start</span>
+                </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="logo-box justify-content-center flex-wrap">
+                    <img src="logos/scai.jpg" alt="SCAI">
+                    <img src="logos/iremus.png" alt="IReMus">
+                    <img src="logos/anr.png" alt="ANR">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="row g-4">
+        <!-- Sidebar: Current Status -->
+        <div class="col-lg-4">
+            <div class="card journal-card bg-white mb-4">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-4">
+                        <i class="bi bi-cpu-fill me-2"></i>Live on Eurasia
+                    </h5>
+                    <div class="mb-4">
+                        <p class="small text-muted mb-1">Gemma-Renaissance LoRA</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="status-running"><i class="bi bi-circle-fill small me-1"></i> Running</span>
+                            <span class="small">17s/step</span>
+                        </div>
+                        <div class="progress mt-2" style="height: 6px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 27%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <p class="small text-muted mb-1">NotaGen harmonic fine-tune</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="status-running"><i class="bi bi-circle-fill small me-1"></i> Running</span>
+                            <span class="small">Epoch 21→35</span>
+                        </div>
+                        <div class="progress mt-2" style="height: 6px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card journal-card border-primary bg-light mb-4">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-primary mb-3">
+                        <i class="bi bi-person-plus-fill me-2"></i>New Internship
+                    </h5>
+                    <p class="small mb-2"><strong>Anatole Huel</strong> (Master's Student)</p>
+                    <p class="small text-muted mb-0">Joining for a summer internship to build and curate a comprehensive <strong>Verdi Symbolic Dataset</strong>, supporting the philological tools in Verdi Studio.</p>
+                </div>
+            </div>
+
+            <div class="card journal-card bg-white">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold mb-3">
+                        <i class="bi bi-rocket-takeoff-fill me-2"></i>Critical Path
+                    </h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2 text-muted"><i class="bi bi-check-circle-fill text-success me-2"></i>Linter calibration</li>
+                        <li class="mb-2 text-muted"><i class="bi bi-check-circle-fill text-success me-2"></i>Zenodo deposit</li>
+                        <li class="mb-2 fw-bold text-dark"><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i>SCG integration & tuning</li>
+                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Transposition augmentation</li>
+                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Expert evaluation panel</li>
+                    </ul>
+
+                    <div class="mt-4 pt-3 border-top">
+                        <a href="https://git.isir.upmc.fr/scai/scai-project/melody" class="btn btn-outline-primary btn-sm w-100 mb-2">
+                            <i class="bi bi-git me-2"></i>Project Repository
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content: Development Log -->
+        <div class="col-lg-8">
+            <h4 class="fw-bold mb-4">Development Log</h4>
+            <div class="log-container mb-5">
+                <!-- Entry -->
+                <div class="log-entry">
+                    <span class="date-badge">June 2, 2026</span>
+                    <h5 class="fw-bold">Verdi Studio: A Philological Workstation for Symbolic Music</h5>
+                    <p>Initiated the core development of <strong>Verdi Studio</strong>, a specialized tool within the MELODY-SUITE designed for the philological study of Giuseppe Verdi's output. The application focuses on three primary pillars: (1) <strong>PDF-to-Symbolic conversion</strong> to unlock archival materials; (2) a <strong>Manual Annotation Layer</strong> for musicological grounding; and (3) a <strong>Verdi-specific RAG</strong> for intelligent score retrieval. This work is supported by <strong>Anatole Huel's</strong> summer internship, dedicated to building and curating the foundational <strong>Verdi Symbolic Dataset</strong>.</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-warning text-dark">In Development</span>
+                        <span class="badge bg-primary">Verdi Studio</span>
+                        <span class="badge bg-info text-dark">Internship</span>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="log-entry">
+                    <span class="date-badge">June 1, 2026</span>
+                    <h5 class="fw-bold">The MELODY-SUITE Ecosystem</h5>
+                    <p>Formalized the <strong>MELODY-SUITE</strong> architecture: a modular workstation for symbolic music. Integration of <code>melody-crawl</code> (automated discovery), <code>melody-forge</code> (instruction-tuning factory), and <code>melody-local</code> (unified inference gateway). This ecosystem enables a seamless transition from raw library discovery to high-fidelity AI generation.</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-dark">Architecture</span>
+                        <span class="badge bg-primary">Melody-Suite</span>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="log-entry">
+                    <span class="date-badge">Saturday, May 30, 2026</span>
+                    <h5 class="fw-bold">NotaGen Harmonic Fine-tuning & SCG Implementation</h5>
+                    <p>Launched Phase 1.3 of NotaGen training on Eurasia with <code>%%COND</code> tokens embedded across a 242-entry annotated corpus. Simultaneously implemented the Soft Constraint Guidance (SCG) gradient oracle loop for rule-guided diffusion.</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-info text-dark">hybrid-model</span>
+                        <span class="badge bg-secondary">Phase 2.1</span>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="log-entry">
+                    <span class="date-badge">Friday, May 29, 2026</span>
+                    <h5 class="fw-bold">VL-Constrained Diffusion Breakthrough</h5>
+                    <p>Training reached Epoch 20 on Eurasia. Results show a 99.8% reduction in parallel-fifth violations, unlocking the Phase 1 conditioned generation pipeline. Calibrated the Baroque Linter with a median score of 67.1 for authentic 4-voice scores.</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-success">Breakthrough</span>
+                        <span class="badge bg-info text-dark">Eurasia</span>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="log-entry">
+                    <span class="date-badge">Thursday, May 28, 2026</span>
+                    <h5 class="fw-bold">VAE-Diff Re-training Completed</h5>
+                    <p>Successfully re-trained VAE (30 epochs) and Diffusion (100 epochs) on corrected tokens. Fixed a critical tokenization bug and KL loss stability issues identified in the previous audit.</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-info text-dark">vae-diff</span>
+                        <span class="badge bg-warning text-dark">Bugfix</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5">
+
+            <h4 class="fw-bold mb-4">Research Repositories</h4>
+            
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="fw-bold small text-uppercase text-muted mb-0">HAL Open Science</h5>
+                <a href="https://hal.science/search/index/q/*/authIdHal_s/xavier-fresquet" target="_blank" class="btn btn-sm btn-link text-decoration-none p-0">View all on HAL <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+            <div class="list-group mb-5 shadow-sm">
+                <a href="https://hal.science/hal-05638223" target="_blank" class="list-group-item list-group-item-action p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1 fw-bold">Melody Forge: An Instruction-Tuning Factory for Symbolic Music LLMs</h6>
+                        <span class="badge bg-success">Software</span>
+                    </div>
+                    <p class="mb-1 small text-muted">hal-05638223v1 · Released: 2026-05-01</p>
+                </a>
+                <a href="https://hal.science/hal-05610105" target="_blank" class="list-group-item list-group-item-action p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1 fw-bold">Redefining AutoML for the Digital Humanities</h6>
+                        <span class="badge bg-secondary">Report</span>
+                    </div>
+                    <p class="mb-1 small text-muted">hal-05610105v1 · Released: 2026-05-02</p>
+                </a>
+                <a href="https://hal.science/hal-05608871" target="_blank" class="list-group-item list-group-item-action p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1 fw-bold">Mapping Medieval Musicology in the Age of Open Data</h6>
+                        <span class="badge bg-secondary">Report</span>
+                    </div>
+                    <p class="mb-1 small text-muted">hal-05608871v1 · Released: 2026-04-06</p>
+                </a>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h5 class="fw-bold small text-uppercase text-muted mb-0">Zenodo Data & Artifacts</h5>
+                <a href="https://zenodo.org/search?q=Fresquet%2C%20Xavier" target="_blank" class="btn btn-sm btn-link text-decoration-none p-0">View all on Zenodo <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <a href="https://zenodo.org/search?q=CSMD" target="_blank" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm card-hover">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-primary">Dataset</span>
+                                    <small class="text-muted">May 29, 2026</small>
+                                </div>
+                                <h6 class="fw-bold text-dark">CSMD: Charpentier Sacred Music Dataset</h6>
+                                <p class="x-small text-muted">52 symbolic scores with 4-level musicological annotations (Phases, RN Harmony, Melodic Features, Voice Ranges).</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="https://zenodo.org/search?q=Aria-MIDI" target="_blank" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm card-hover">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-info text-dark">Notebook</span>
+                                    <small class="text-muted">May 2, 2026</small>
+                                </div>
+                                <h6 class="fw-bold text-dark">Aria-MIDI DH Study Materials</h6>
+                                <p class="x-small text-muted">Data, code, and visualizations for "The Algorithmic Piano" DH study.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="https://zenodo.org/search?q=ABC-MusicXML-MIDI" target="_blank" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm card-hover">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-primary">Dataset</span>
+                                    <small class="text-muted">April 28, 2026</small>
+                                </div>
+                                <h6 class="fw-bold text-dark">ABC–MusicXML–MIDI Correspondence</h6>
+                                <p class="x-small text-muted">Parallel symbolic representations for cross-format conversion benchmarking.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="https://zenodo.org/records/15571083" target="_blank" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm card-hover">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span class="badge bg-info text-dark">Framework</span>
+                                    <small class="text-muted">April 28, 2026</small>
+                                </div>
+                                <h6 class="fw-bold text-dark">PDMX Explorer</h6>
+                                <p class="x-small text-muted">Reproducible DH framework for critical exploration of the PDMX corpus.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-5 text-center">
+                <button class="btn btn-outline-secondary btn-sm" disabled>End of recent entries</button>
+            </div>
+        </div>
+    </div>
+</main>
+    </div>
+</main>
+
+<footer class="text-center">
+    <div class="container">
+        <hr>
+        <p>MELODY Project · ANR-24-CE38-0010 · 2025–2027</p>
+        <p class="x-small">Sorbonne Center for Artificial Intelligence (SCAI) · IReMus · ISIR · LIP6</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
