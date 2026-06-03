@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!-- 
+  CRITICAL: This file is the source for the live Project Journal at:
+  https://captaldebuch.github.io/ANR_MELODY/
+  
+  When you update this file locally, you MUST push the changes to the 
+  'captaldebuch.github.io' repository on GitHub.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -126,23 +133,23 @@
                         <i class="bi bi-cpu-fill me-2"></i>Live on Eurasia
                     </h5>
                     <div class="mb-4">
-                        <p class="small text-muted mb-1">Gemma-Renaissance LoRA</p>
+                        <p class="small text-muted mb-1">Music Reasoning (ZR1) — 1.5B</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <span class="status-running"><i class="bi bi-circle-fill small me-1"></i> Running</span>
-                            <span class="small">17s/step</span>
+                            <span class="small">6.1s/step</span>
                         </div>
                         <div class="progress mt-2" style="height: 6px;">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 27%"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 65%"></div>
                         </div>
                     </div>
                     <div class="mb-4">
-                        <p class="small text-muted mb-1">NotaGen harmonic fine-tune</p>
+                        <p class="small text-muted mb-1">Gemma-PDMX Phase D (LoRA)</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="status-running"><i class="bi bi-circle-fill small me-1"></i> Running</span>
-                            <span class="small">Epoch 21→35</span>
+                            <span class="badge bg-success small"><i class="bi bi-check-circle-fill me-1"></i> Completed</span>
+                            <span class="small">Epoch 20 reached</span>
                         </div>
                         <div class="progress mt-2" style="height: 6px;">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: 60%"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
                         </div>
                     </div>
                 </div>
@@ -153,7 +160,7 @@
                     <h5 class="card-title fw-bold text-primary mb-3">
                         <i class="bi bi-person-plus-fill me-2"></i>New Internship
                     </h5>
-                    <p class="small mb-2"><strong>Anatole Huel</strong> (Master's Student)</p>
+                    <p class="small mb-2"><strong>Anatole Huet</strong> (Master's Student)</p>
                     <p class="small text-muted mb-0">Joining for a summer internship to build and curate a comprehensive <strong>Verdi Symbolic Dataset</strong>, supporting the philological tools in Verdi Studio.</p>
                 </div>
             </div>
@@ -186,9 +193,21 @@
             <div class="log-container mb-5">
                 <!-- Entry -->
                 <div class="log-entry">
+                    <span class="date-badge">June 3, 2026</span>
+                    <h5 class="fw-bold">Glossa & Musiconis MCP: Agentic Workflows for Digital Musicology</h5>
+                    <p>Major milestones in the <strong>MUSICONIS-LAB</strong> and <strong>MELODY-SUITE</strong> integration. (1) Officially submitted <em>"Musiconis MCP: Agentic Workflows for Medieval Iconography"</em> to <strong>Digital Medievalist</strong>. (2) Launched <strong>Glossa</strong>, a local-first music score analysis workbench. Phase 1 (Ingest & Render) completed, enabling cross-format score normalization and Verovio rendering via a FastAPI backend. This infrastructure provides the "gloss layer" needed for high-quality human-in-the-loop training data generation.</p>
+                    <div class="d-flex gap-2">
+                        <span class="badge bg-success">Submission</span>
+                        <span class="badge bg-primary">Glossa</span>
+                        <span class="badge bg-dark">Musiconis MCP</span>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="log-entry">
                     <span class="date-badge">June 2, 2026</span>
                     <h5 class="fw-bold">Verdi Studio: A Philological Workstation for Symbolic Music</h5>
-                    <p>Initiated the core development of <strong>Verdi Studio</strong>, a specialized tool within the MELODY-SUITE designed for the philological study of Giuseppe Verdi's output. The application focuses on three primary pillars: (1) <strong>PDF-to-Symbolic conversion</strong> to unlock archival materials; (2) a <strong>Manual Annotation Layer</strong> for musicological grounding; and (3) a <strong>Verdi-specific RAG</strong> for intelligent score retrieval. This work is supported by <strong>Anatole Huel's</strong> summer internship, dedicated to building and curating the foundational <strong>Verdi Symbolic Dataset</strong>.</p>
+                    <p>Initiated the core development of <strong>Verdi Studio</strong>, a specialized tool within the MELODY-SUITE designed for the philological study of Giuseppe Verdi's output. The application focuses on three primary pillars: (1) <strong>PDF-to-Symbolic conversion</strong> to unlock archival materials; (2) a <strong>Manual Annotation Layer</strong> for musicological grounding; and (3) a <strong>Verdi-specific RAG</strong> for intelligent score retrieval. This work is supported by <strong>Anatole Huet's</strong> summer internship, dedicated to building and curating the foundational <strong>Verdi Symbolic Dataset</strong>.</p>
                     <div class="d-flex gap-2">
                         <span class="badge bg-warning text-dark">In Development</span>
                         <span class="badge bg-primary">Verdi Studio</span>
