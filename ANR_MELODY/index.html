@@ -193,6 +193,19 @@
             <div class="log-container mb-5">
                 <!-- Entry -->
                 <div class="log-entry">
+                    <span class="date-badge">June 23, 2026</span>
+                    <h5 class="fw-bold">Melody-SLM P2: Augmented Pretraining Launched</h5>
+                    <p>After fixing a critical augmentation pipeline bug (the previous <code>transpose_abc</code> silently wrote corrupt <code>music21</code> object representations instead of valid ABC), we deployed a custom key-aware transposer for the <code>[r:N/M][V:k]</code> dialect used in the HARMONIA corpus. This unlocks <strong>×11 data multiplication</strong> — expanding the training set from 15,133 original scores to <strong>181,486 augmented records (~360M tokens)</strong>. Every transposed record carries full FAIR provenance metadata (<code>source_title</code>, <code>original_key</code>, <code>transposition_offset</code>, <code>%%provenance</code> header) traceable back to the HARMONIA canonical source. The <strong>50M-parameter Melody-SLM P2</strong> (<code>small</code> config, 2048 token context, bfloat16) is now training on Eurasia, estimated completion in ~6 days.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <span class="badge bg-success">Training</span>
+                        <span class="badge bg-primary">Melody-SLM</span>
+                        <span class="badge bg-info text-dark">HARMONIA</span>
+                        <span class="badge bg-secondary">Eurasia</span>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="log-entry">
                     <span class="date-badge">April–May 2026</span>
                     <h5 class="fw-bold">Molière ex Machina: AI-Driven 17th Century Music Premiere</h5>
                     <p>The <strong>Melody project team</strong> provided the generative music layer for <strong>Molière ex Machina</strong>, a landmark AI-co-written play developed with <strong>Obvious</strong> and <strong>Hugo Caselles-Dupré</strong>. Our models delivered a historically grounded 17th-century soundtrack, seamlessly bridging philological musicology with contemporary theatre.</p>
