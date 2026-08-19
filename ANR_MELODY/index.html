@@ -10,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evidence-bounded development journal for the ANR MELODY project: symbolic-music discovery, data engineering, models, and publications.">
     <title>MELODY Project Journal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
@@ -59,7 +60,7 @@
             display: inline-block;
             margin-right: 10px;
         }
-        .status-running { color: #198754; font-weight: bold; }
+        .status-in-progress { color: #9a6700; font-weight: 700; }
         .log-entry {
             border-left: 3px solid #dee2e6;
             padding-left: 1.5rem;
@@ -78,6 +79,7 @@
             border-radius: 50%;
         }
         .log-entry:last-child { border-left: none; }
+        .log-entry .d-flex.gap-2 { flex-wrap: wrap; }
         footer {
             padding: 2rem 0;
             color: #6c757d;
@@ -94,6 +96,42 @@
         .logo-box img {
             height: 30px;
         }
+        .pipeline {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: stretch;
+            gap: 0.65rem;
+            margin: 1.25rem 0;
+        }
+        .pipeline-step {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 0.85rem;
+        }
+        .pipeline-step strong { display: block; }
+        .pipeline-step small { color: #6c757d; }
+        .pipeline-arrow {
+            align-self: center;
+            color: var(--melody-blue);
+            font-size: 1.25rem;
+        }
+        .policy-note {
+            background: #f0f7ff;
+            border-left: 4px solid var(--melody-blue);
+            padding: 0.85rem 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .evidence-note {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+        }
+        @media (max-width: 767.98px) {
+            .pipeline { grid-template-columns: 1fr; }
+            .pipeline-arrow { transform: rotate(90deg); justify-self: center; }
+        }
     </style>
 </head>
 <body>
@@ -107,9 +145,10 @@
                 <div class="mb-3 text-white-50 small">
                     <span class="me-3"><i class="bi bi-people-fill me-1"></i> <strong>Team:</strong> Damien Colas (CNRS), Xavier Fresquet (SU), Raphael Cousin (SU), Isabelle Bloch (SU), Benjamin Piwowarski (CNRS)</span>
                 </div>
-                <div class="d-flex gap-2 mt-3">
+                <div class="d-flex flex-wrap gap-2 mt-3">
                     <span class="badge bg-primary">ANR-24-CE38</span>
-                    <span class="badge bg-light text-dark">Q2 2026 Phase: Project Start</span>
+                    <span class="badge bg-light text-dark">August 2026 · Data &amp; Release Engineering</span>
+                    <span class="badge bg-success">Open-data policy</span>
                 </div>
             </div>
             <div class="col-lg-4 d-none d-lg-block">
@@ -130,19 +169,21 @@
             <div class="card journal-card bg-white mb-4">
                 <div class="card-body">
                     <h5 class="card-title fw-bold mb-4">
-                        <i class="bi bi-cpu-fill me-2"></i>Live on Eurasia
+                        <i class="bi bi-database-check me-2"></i>Current data status
                     </h5>
                     <div class="mb-4">
-                        <p class="small text-muted mb-1">Melody-SLM P2 — 50M params</p>
+                        <p class="small text-muted mb-1">HARMONIA v0.1</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="status-running"><i class="bi bi-circle-fill small me-1"></i> Running</span>
-                            <span class="small">~6 days est.</span>
+                            <span class="status-in-progress"><i class="bi bi-circle-fill small me-1"></i> Release engineering</span>
                         </div>
-                        <div class="progress mt-2" style="height: 6px;">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 2%"></div>
-                        </div>
-                        <p class="x-small text-muted mt-1 mb-0">181,486 records · ~360M tokens · launched June 23</p>
+                        <p class="small text-muted mt-2 mb-0">No public HARMONIA v0.1 release is claimed yet. Working inventories and crawler leads are not release counts.</p>
                     </div>
+                    <ul class="list-unstyled small mb-0">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Repository prospecting implemented</li>
+                        <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i>Forge hand-off and normalization in progress</li>
+                        <li class="mb-2"><i class="bi bi-circle text-muted me-2"></i>Rights, metadata, and duplicate gates remain open</li>
+                        <li><i class="bi bi-circle text-muted me-2"></i>Production MNX export and validation remain planned</li>
+                    </ul>
                 </div>
             </div>
 
@@ -152,27 +193,47 @@
                         <i class="bi bi-person-plus-fill me-2"></i>New Internship
                     </h5>
                     <p class="small mb-2"><strong>Anatole Huet</strong> (Master's Student)</p>
-                    <p class="small text-muted mb-0">Joining for a summer internship to build and curate a comprehensive <strong>Verdi Symbolic Dataset</strong>, supporting the philological tools in Verdi Studio.</p>
+                    <p class="small text-muted mb-0">Joining for a summer internship to build and curate a documented <strong>Verdi Symbolic Dataset</strong>, supporting the philological tools in Verdi Studio.</p>
                 </div>
             </div>
 
             <div class="card journal-card bg-white">
                 <div class="card-body">
                     <h5 class="card-title fw-bold mb-3">
-                        <i class="bi bi-rocket-takeoff-fill me-2"></i>Critical Path
+                        <i class="bi bi-rocket-takeoff-fill me-2"></i>Critical path
                     </h5>
                     <ul class="list-unstyled small">
-                        <li class="mb-2 text-muted"><i class="bi bi-check-circle-fill text-success me-2"></i>Linter calibration</li>
-                        <li class="mb-2 text-muted"><i class="bi bi-check-circle-fill text-success me-2"></i>Zenodo deposit</li>
-                        <li class="mb-2 fw-bold text-dark"><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i>SCG integration & tuning</li>
-                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Transposition augmentation</li>
-                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Expert evaluation panel</li>
+                        <li class="mb-2 fw-bold text-dark"><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i>Freeze a rights-cleared v0.1 slice</li>
+                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Connect Crawl manifests to Forge</li>
+                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Validate experimental MNX companions</li>
+                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Resolve cross-source duplicate families</li>
+                        <li class="mb-2 text-muted"><i class="bi bi-circle me-2"></i>Publish frozen manifests and documentation</li>
                     </ul>
 
                     <div class="mt-4 pt-3 border-top">
                         <a href="https://git.isir.upmc.fr/scai/scai-project/melody" class="btn btn-outline-primary btn-sm w-100 mb-2">
                             <i class="bi bi-git me-2"></i>Project Repository
                         </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card journal-card border-primary bg-light mt-4">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-primary mb-3">
+                        <i class="bi bi-unlock-fill me-2"></i>Open &amp; FAIR policy
+                    </h5>
+                    <p class="small">The public dataset is limited to scores whose terms permit redistribution and reuse. Public availability alone is not treated as an open licence.</p>
+                    <ul class="small ps-3 mb-3">
+                        <li><strong>Findable:</strong> stable IDs, versioned manifests, searchable metadata.</li>
+                        <li><strong>Accessible:</strong> open protocols and persistent metadata.</li>
+                        <li><strong>Interoperable:</strong> preserved source files, MusicXML, and documented experimental MNX derivatives.</li>
+                        <li><strong>Reusable:</strong> record-level rights, source URI, hashes, and conversion lineage.</li>
+                    </ul>
+                    <p class="small mb-2"><strong>Licence boundary:</strong> public-domain, CC0, CC BY, CC BY-SA, or equivalent reviewed terms may enter the open release. Non-commercial-only material, if retained, stays in a separate labelled research partition and is not described as open data.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="https://www.gofair.foundation/fair-principles" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">FAIR principles</a>
+                        <a href="https://mnx.formats.music/docs/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary btn-sm">MNX draft specification</a>
                     </div>
                 </div>
             </div>
@@ -184,11 +245,63 @@
             <div class="log-container mb-5">
                 <!-- Entry -->
                 <div class="log-entry">
+                    <span class="date-badge">August 19, 2026</span>
+                    <h5 class="fw-bold">Rights-aware discovery and the HARMONIA release pipeline</h5>
+                    <p>We implemented a multi-format repository prospecting layer in <strong>MelodyCrawl</strong> and clarified the ownership of each stage: Crawl discovers and records evidence; Forge normalizes accepted scores and produces derived formats; HARMONIA assigns stable identities, resolves duplicates, and publishes versioned releases.</p>
+
+                    <div class="pipeline" aria-label="MELODY symbolic-data pipeline">
+                        <div class="pipeline-step">
+                            <strong>MelodyCrawl</strong>
+                            <small>Discovery, source pinning, rights evidence</small>
+                        </div>
+                        <i class="bi bi-arrow-right pipeline-arrow" aria-hidden="true"></i>
+                        <div class="pipeline-step">
+                            <strong>MelodyForge</strong>
+                            <small>Normalization, validation, derived MNX</small>
+                        </div>
+                        <i class="bi bi-arrow-right pipeline-arrow" aria-hidden="true"></i>
+                        <div class="pipeline-step">
+                            <strong>HARMONIA</strong>
+                            <small>Stable IDs, deduplication, manifests, releases</small>
+                        </div>
+                    </div>
+
+                    <p>A bounded seed review found <strong>806 extension-normalized path identities</strong> across five high-priority repositories. This includes 244 OpenScore String Quartet paths representing 122 score identities in two formats, plus nine pinned upstream corpora exposed by a DCML meta-repository. These figures are discovery leads—not imported HARMONIA records, not unique-work totals, and not a claim of exhaustive GitHub coverage. The broader scan was also constrained by the unauthenticated GitHub API quota.</p>
+
+                    <p>Duplicate control is staged: byte hashes catch exact copies, normalized musical fingerprints catch format or serialization variants, and work-level clusters are reviewed before release. Human-readable filenames follow <code>CENTURY_COMPOSER_WORK[_CATALOGUE]</code> when the required metadata is known; stable record IDs remain independent of filenames.</p>
+
+                    <div class="evidence-note mb-3">
+                        <strong>Current implementation boundary.</strong> The Crawl prospecting workflow and its tests are implemented. The production Crawl-to-Forge consumer, final authority metadata, and verified MNX exporter remain work in progress. No score is promoted automatically.
+                    </div>
+
+                    <p class="mb-3">MNX is a first-class target for a companion copy of each supported, accepted score, while the original file and MusicXML interchange representation are preserved. Because the official MNX 1.0 document is still a draft, generated MNX will be labelled experimental, tied to a pinned specification/converter version, schema-checked, and subjected to semantic round-trip tests before release.</p>
+
+                    <div class="policy-note mb-3">
+                        <strong>Open data and FAIR.</strong> Admission requires record-level rights evidence, provenance, checksums, and a reviewed reuse decision. FAIR describes how records and metadata are made findable, accessible, interoperable, and reusable; it does not by itself make a score openly licensed.
+                    </div>
+
+                    <h6 class="fw-bold">Publication package (planned)</h6>
+                    <ul class="small">
+                        <li>a versioned HARMONIA dataset deposit with checksums, manifest, datasheet, and licence inventory;</li>
+                        <li>a technical report accompanied by a reproducible Jupyter notebook and data visualizations; and</li>
+                        <li>a full-length article intended for the DADA journal, subject to venue confirmation and completion of the audited release.</li>
+                    </ul>
+                    <p class="small mb-3"><strong>Application scope:</strong> the companion music application is planned around external symbolic-music models only, with an initial compatibility target of five or six adapters. A model is not advertised as supported until its licence, interface, notation format, and local resource requirements have been tested.</p>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-success">Crawler implemented</span>
+                        <span class="badge bg-warning text-dark">Pipeline in progress</span>
+                        <span class="badge bg-primary">Open-data policy</span>
+                        <span class="badge bg-info text-dark">FAIR-oriented</span>
+                    </div>
+                </div>
+
+                <!-- Entry -->
+                <div class="log-entry">
                     <span class="date-badge">June 23, 2026</span>
                     <h5 class="fw-bold">Melody-SLM P2: Augmented Pretraining Launched</h5>
-                    <p>After fixing a critical augmentation pipeline bug (the previous <code>transpose_abc</code> silently wrote corrupt <code>music21</code> object representations instead of valid ABC), we deployed a custom key-aware transposer for the <code>[r:N/M][V:k]</code> dialect used in the HARMONIA corpus. This unlocks <strong>×11 data multiplication</strong> — expanding the training set from 15,133 original scores to <strong>181,486 augmented records (~360M tokens)</strong>. Every transposed record carries full FAIR provenance metadata (<code>source_title</code>, <code>original_key</code>, <code>transposition_offset</code>, <code>%%provenance</code> header) traceable back to the HARMONIA canonical source. The <strong>50M-parameter Melody-SLM P2</strong> (<code>small</code> config, 2048 token context, bfloat16) is now training on Eurasia, estimated completion in ~6 days.</p>
+                    <p>After fixing an augmentation pipeline bug (the previous <code>transpose_abc</code> wrote <code>music21</code> object representations instead of valid ABC), we launched a key-aware transposition run for the <code>[r:N/M][V:k]</code> dialect used in the working corpus. The run expanded 15,133 source records to 181,486 training records (approximately 360M tokens). Transposed records include source title, original key, transposition offset, and a provenance header intended to support traceability. The 50M-parameter Melody-SLM P2 training run was launched on Eurasia with a 2,048-token context and bfloat16. These are dated run records, not a current training-status claim or a public HARMONIA release.</p>
                     <div class="d-flex gap-2 mt-3">
-                        <span class="badge bg-success">Training</span>
+                        <span class="badge bg-secondary">Historical run</span>
                         <span class="badge bg-primary">Melody-SLM</span>
                         <span class="badge bg-info text-dark">HARMONIA</span>
                         <span class="badge bg-secondary">Eurasia</span>
@@ -199,7 +312,7 @@
                 <div class="log-entry">
                     <span class="date-badge">April–May 2026</span>
                     <h5 class="fw-bold">Molière ex Machina: AI-Driven 17th Century Music Premiere</h5>
-                    <p>The <strong>Melody project team</strong> provided the generative music layer for <strong>Molière ex Machina</strong>, a landmark AI-co-written play developed with <strong>Obvious</strong> and <strong>Hugo Caselles-Dupré</strong>. Our models delivered a historically grounded 17th-century soundtrack, seamlessly bridging philological musicology with contemporary theatre.</p>
+                    <p>The <strong>MELODY project team</strong> contributed generative-music work to <strong>Molière ex Machina</strong>, an AI-assisted theatre project developed with <strong>Obvious</strong> and <strong>Hugo Caselles-Dupré</strong>. The collaboration explored historically informed musical generation for a seventeenth-century theatrical setting.</p>
                     <div class="mt-3">
                         <a href="https://www.theguardian.com/stage/2026/may/11/moliere-ex-machina-ai-create-new-work-france-equivalent-shakespeare" class="btn btn-outline-primary btn-sm me-2" target="_blank">The Guardian</a>
                         <a href="https://www.nytimes.com/2026/01/08/theater/moliere-ai-sorbonne-the-astrologer.html" class="btn btn-outline-primary btn-sm me-2" target="_blank">NYT</a>
@@ -216,23 +329,23 @@
                 <!-- Entry -->
                 <div class="log-entry">
                     <span class="date-badge">June 5, 2026</span>
-                    <h5 class="fw-bold">MelodyCrawl: Automated Symbolic Score Discovery & Aggregator</h5>
-                    <p>Deployed the first stable version of <strong>MelodyCrawl</strong>, a specialized retrieval engine designed to aggregate symbolic music scores (MusicXML, MXL, ABC) from diverse open repositories. By automating the discovery of editable formats across global libraries (IMSLP, OpenScore, Josquin Project, Zenodo, etc.), it facilitates the creation of high-quality datasets for computational musicology and AI training. The tool includes granular controls for crawl speed, era filtering, and texture analysis.</p>
+                    <h5 class="fw-bold">MelodyCrawl: symbolic-score discovery prototype</h5>
+                    <p>Built the first working <strong>MelodyCrawl</strong> interface for discovering editable symbolic scores and recording their source evidence. The current repository prospecting layer recognizes MusicXML/MXL, MuseScore, Humdrum/Kern, MEI, ABC, and LilyPond candidates. Discovery does not establish licence compatibility, tonal/polyphonic suitability, metadata quality, or uniqueness: every candidate must pass explicit review and Forge validation before it can enter HARMONIA. Some source adapters remain experimental or review-only.</p>
                     <div class="mb-3 mt-3">
                         <img src="images/melody_crawl_interface.png" alt="MelodyCrawl Interface" class="img-fluid rounded shadow-sm border border-light">
                     </div>
                     <div class="d-flex gap-2">
                         <span class="badge bg-primary">Dataset Discovery</span>
-                        <span class="badge bg-success">Tool Release</span>
-                        <span class="badge bg-info text-dark">Aggregator</span>
+                        <span class="badge bg-warning text-dark">Prototype</span>
+                        <span class="badge bg-info text-dark">Prospecting</span>
                     </div>
                 </div>
 
                 <!-- Entry -->
                 <div class="log-entry">
                     <span class="date-badge">June 5, 2026</span>
-                    <h5 class="fw-bold">Reasoning-Aware Pivot & Evaluation Benchmarks</h5>
-                    <p>Session 21 focused on the rigorous evaluation of stylistic models and the initiation of the <strong>Reasoning-Aware Generative Fine-Tuning (R-GFT)</strong> paradigm. A critical diagnostic of the ZR1 v3 data revealed high corruption levels, which were repaired (880 clean examples regenerated) before relaunching a sequential training queue on Eurasia. We also launched the first reasoning-aware fine-tuning for the Gemma track. In model evaluations, <strong>Phase D (Chord Tones)</strong> emerged as the generative leader with a score of 72.9.</p>
+                    <h5 class="fw-bold">Reasoning-Aware Pivot &amp; Evaluation Benchmarks</h5>
+                    <p>Session 21 evaluated stylistic models and began experiments with <strong>Reasoning-Aware Generative Fine-Tuning (R-GFT)</strong>. An internal diagnostic of the ZR1 v3 data identified corruption; 880 examples were regenerated before the sequential training queue was relaunched on Eurasia. We also started a reasoning-aware fine-tuning experiment for the Gemma track. In that internal evaluation setup, <strong>Phase D (Chord Tones)</strong> received the highest reported score, 72.9; the result has not yet been established as a general benchmark.</p>
                     <div class="d-flex gap-2">
                         <span class="badge bg-primary">Evaluation</span>
                         <span class="badge bg-warning text-dark">R-GFT</span>
@@ -243,22 +356,22 @@
                 <!-- Entry -->
                 <div class="log-entry">
                     <span class="date-badge">June 5, 2026</span>
-                    <h5 class="fw-bold">Structural Consolidation & Master Data Assets: HARMONIA & MELODY Studio</h5>
-                    <p>Major infrastructure optimization in the <strong>MELODY-SUITE</strong>. (1) The <strong>HARMONIA</strong> repository has been elevated to a top-level master data asset with a formal <strong>Linked Open Data (LOD)</strong> mandate, integrating RISM and Polifonia URI resolution. (2) <strong>MELODY Studio (melodyapp)</strong> is now the unified aggregator for the entire suite, consolidating <em>melody-local</em> and providing a single entry point for generative, analytical, and philological tasks.</p>
+                    <h5 class="fw-bold">Structural consolidation: HARMONIA &amp; MELODY Studio</h5>
+                    <p>The project architecture now treats <strong>HARMONIA</strong> as the canonical data layer and <strong>MELODY Studio (melodyapp)</strong> as the intended user-facing workspace. The HARMONIA roadmap includes authority links such as RISM and Polifonia identifiers where they can be resolved with evidence; comprehensive Linked Open Data coverage has not yet been established. Studio integration across generative, analytical, and philological tools is being developed incrementally.</p>
                     <div class="mb-3 mt-3">
                         <img src="images/melody_forge_dashboard.png" alt="Melody Forge Dashboard" class="img-fluid rounded shadow-sm border border-light">
                     </div>
                     <div class="d-flex gap-2">
                         <span class="badge bg-success">Infrastructure</span>
                         <span class="badge bg-primary">Studio</span>
-                        <span class="badge bg-info text-dark">LOD</span>
+                        <span class="badge bg-info text-dark">LOD roadmap</span>
                     </div>
                 </div>
 
                 <!-- Entry -->
                 <div class="log-entry">
                     <span class="date-badge">June 4, 2026</span>
-                    <h5 class="fw-bold">Eurasia Status Update: Music Reasoning (ZR1) Training & Phase Completion</h5>
+                    <h5 class="fw-bold">Eurasia Status Update: Music Reasoning (ZR1) Training &amp; Phase Completion</h5>
                     <p>Conducted a comprehensive audit of the Eurasia server. (1) <strong>Music Reasoning (ZR1)</strong> is actively training (Epoch 3.75, 79% through current phase) with a high token accuracy of 99.2%. (2) Confirmed the successful completion of the <strong>Gemma-Renaissance LoRA</strong> adaptation and the <strong>NotaGen Phase 1.3 harmonic fine-tuning</strong> (best eval loss 0.0384). All models and adapters have been saved and are ready for the next phase of evaluation and integration into the multi-agent pipeline.</p>
                     <div class="d-flex gap-2">
                         <span class="badge bg-success">Training Update</span>
@@ -283,7 +396,7 @@
                 <div class="log-entry">
                     <span class="date-badge">June 1, 2026</span>
                     <h5 class="fw-bold">The MELODY-SUITE Ecosystem</h5>
-                    <p>Formalized the <strong>MELODY-SUITE</strong> architecture: a modular workstation for symbolic music. Integration of <code>melody-crawl</code> (automated discovery), <code>melody-forge</code> (instruction-tuning factory), and <code>melody-local</code> (unified inference gateway). This ecosystem enables a seamless transition from raw library discovery to high-fidelity AI generation.</p>
+                    <p>Formalized the <strong>MELODY-SUITE</strong> as a modular symbolic-music architecture. Its data path is now defined as <code>melody-crawl</code> (discovery and evidence) → <code>melody-forge</code> (normalization and conversion) → <code>HARMONIA</code> (canonical dataset and releases), with models and Studio consuming versioned outputs. The contracts between these components are still being implemented and tested; an end-to-end production pipeline is not yet claimed.</p>
                     <div class="d-flex gap-2">
                         <span class="badge bg-dark">Architecture</span>
                         <span class="badge bg-primary">Melody-Suite</span>
@@ -293,7 +406,7 @@
                 <!-- Entry -->
                 <div class="log-entry">
                     <span class="date-badge">Saturday, May 30, 2026</span>
-                    <h5 class="fw-bold">NotaGen Harmonic Fine-tuning & SCG Implementation</h5>
+                    <h5 class="fw-bold">NotaGen Harmonic Fine-tuning &amp; SCG Implementation</h5>
                     <p>Launched Phase 1.3 of NotaGen training on Eurasia with <code>%%COND</code> tokens embedded across a 242-entry annotated corpus. Simultaneously implemented the Soft Constraint Guidance (SCG) gradient oracle loop for rule-guided diffusion.</p>
                     <div class="d-flex gap-2">
                         <span class="badge bg-info text-dark">hybrid-model</span>
@@ -314,6 +427,37 @@
             </div>
 
             <hr class="my-5">
+
+            <h4 class="fw-bold mb-4">Publication Roadmap</h4>
+            <div class="row g-3 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-3">Planned</span>
+                            <h6 class="fw-bold">HARMONIA dataset</h6>
+                            <p class="small text-muted mb-0">A frozen, rights-cleared release with a versioned manifest, record-level licences, provenance, checksums, deduplication report, and datasheet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-warning text-dark mb-3">Planned</span>
+                            <h6 class="fw-bold">Technical report &amp; notebook</h6>
+                            <p class="small text-muted mb-0">Methods, quality gates, and limitations, accompanied by a reproducible Jupyter notebook and data visualizations generated from the frozen manifest.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-3">Target to confirm</span>
+                            <h6 class="fw-bold">Full research article</h6>
+                            <p class="small text-muted mb-0">A full-length article intended for DADA after the audited dataset and evaluation materials are complete. No submission or acceptance is claimed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <h4 class="fw-bold mb-4">Research Repositories</h4>
             
@@ -339,7 +483,7 @@
             </div>
 
             <div class="d-flex align-items-center justify-content-between mb-3">
-                <h5 class="fw-bold small text-uppercase text-muted mb-0">Zenodo Data & Artifacts</h5>
+                <h5 class="fw-bold small text-uppercase text-muted mb-0">Zenodo Data &amp; Artifacts</h5>
                 <a href="https://zenodo.org/search?q=Fresquet%2C%20Xavier" target="_blank" class="btn btn-sm btn-link text-decoration-none p-0">View all on Zenodo <i class="bi bi-box-arrow-up-right ms-1"></i></a>
             </div>
             <div class="row g-3">
@@ -405,8 +549,6 @@
                 <button class="btn btn-outline-secondary btn-sm" disabled>End of recent entries</button>
             </div>
         </div>
-    </div>
-</main>
     </div>
 </main>
 
