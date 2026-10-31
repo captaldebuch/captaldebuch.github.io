@@ -146,8 +146,8 @@
                     <span class="me-3"><i class="bi bi-people-fill me-1"></i> <strong>Team:</strong> Damien Colas (CNRS), Xavier Fresquet (SU), Raphael Cousin (SU), Isabelle Bloch (SU), Benjamin Piwowarski (CNRS)</span>
                 </div>
                 <div class="d-flex flex-wrap gap-2 mt-3">
-                    <span class="badge bg-primary">ANR-24-CE38</span>
-                    <span class="badge bg-light text-dark">August 2026 · Data &amp; Release Engineering</span>
+                    <span class="badge bg-primary">ANR TSIA MELODY</span>
+                    <span class="badge bg-light text-dark">Updated 31 October 2026</span>
                     <span class="badge bg-success">Open-data policy</span>
                 </div>
             </div>
@@ -191,10 +191,10 @@
             <div class="card journal-card border-primary bg-light mb-4">
                 <div class="card-body">
                     <h5 class="card-title fw-bold text-primary mb-3">
-                        <i class="bi bi-person-plus-fill me-2"></i>New Internship
+                        <i class="bi bi-person-plus-fill me-2"></i>Digital Verdi
                     </h5>
-                    <p class="small mb-2"><strong>Anatole Huet</strong> (Master's Student)</p>
-                    <p class="small text-muted mb-0">Joining for a summer internship to build and curate a documented <strong>Verdi Symbolic Dataset</strong>, supporting the philological tools in Verdi Studio.</p>
+                    <p class="small mb-2">Corpus documentation &amp; source criticism</p>
+                    <p class="small text-muted mb-0">A dataset report and a companion musicology/DH article were prepared for coauthor review in September. Both examine the construction and limits of the working Verdi collection; neither is submitted. Release permissions and publication venues remain to be agreed.</p>
                 </div>
             </div>
 
@@ -244,6 +244,18 @@
         <div class="col-lg-8">
             <h4 class="fw-bold mb-4">Development Log</h4>
             <div class="log-container mb-5">
+                <div class="log-entry">
+                    <span class="date-badge">October 31, 2026</span>
+                    <h5 class="fw-bold">Autumn research update</h5>
+                    <p>Current work brings together corpus documentation, controlled symbolic-music generation and the critical study of digital scores. The public <strong>HARMONIA exemplar contains 100 OpenScore Lieder records</strong>; a larger working collection is still being curated and is not a released corpus.</p>
+                    <ul>
+                        <li><strong>HARMONIA–NotaGen:</strong> a controlled adaptation protocol uses a frozen 1,384-record research manifest with work-family splits. An 18-record conversion pilot preserved the tested pitch, timing and structural properties, with notation warnings in nine records. Full validation and baseline checks remain; no HARMONIA–NotaGen checkpoint or model-quality improvement is claimed.</li>
+                        <li><strong>Score Chat:</strong> a local prototype explores score generation, inspection and revision using an external NotaGen-X worker. Runtime enablement and reproducible evaluation remain prerequisites for a public service.</li>
+                        <li><strong>Structured representations:</strong> an AST-based representation-learning study was registered on 27 October. It is a planned comparison, with data and grammar checks preceding training.</li>
+                    </ul>
+                    <p class="small text-muted mb-0">Earlier entries below document experiments at their original dates. They do not establish current model availability or a public service.</p>
+                </div>
+
                 <!-- Entry -->
                 <div class="log-entry">
                     <span class="date-badge">August 19, 2026</span>
@@ -430,37 +442,59 @@
 
             <hr class="my-5">
 
-            <h4 class="fw-bold mb-4">Publication Roadmap</h4>
-            <div class="row g-3 mb-5">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <span class="badge bg-success mb-3">Published exemplar</span>
-                            <h6 class="fw-bold">HARMONIA exemplar</h6>
-                            <p class="small text-muted mb-2">A 100-record, rights-cleared OpenScore Lieder payload release with source MXL, normalized MusicXML, ABC, MIDI, metadata, checksums, and clearance evidence.</p>
-                            <a href="https://doi.org/10.5281/zenodo.22249530" target="_blank" rel="noopener noreferrer" class="small">Zenodo DOI: 10.5281/zenodo.22249530</a>
-                        </div>
-                    </div>
+            <h4 class="fw-bold mb-2" id="publications">Publications &amp; manuscripts</h4>
+            <p class="small text-muted mb-4">Status reviewed against project records on 31 October 2026. Dataset and software deposits are distinguished from journal articles; manuscript statuses reflect the latest recorded editorial evidence.</p>
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body">
+                        <span class="badge bg-success mb-3">Published dataset</span>
+                        <h6 class="fw-bold">HARMONIA exemplar</h6>
+                        <p class="small text-muted mb-2">Version 1.0.0, published 2 September 2026: 100 OpenScore Lieder records with source files, derivatives and provenance documentation. This is an exemplar, not the full HARMONIA corpus.</p>
+                        <a href="https://doi.org/10.5281/zenodo.22249530" target="_blank" rel="noopener noreferrer" class="small">Dataset DOI</a>
+                    </div></div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <span class="badge bg-warning text-dark mb-3">In preparation</span>
-                            <h6 class="fw-bold">Technical report &amp; notebook</h6>
-                            <p class="small text-muted mb-0">Methods, quality gates, limitations, and release diagnostics, accompanied by reproducible notebooks and data visualizations generated from frozen manifests.</p>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body">
+                        <span class="badge bg-secondary mb-3">Author review · not submitted</span>
+                        <h6 class="fw-bold">HARMONIA: data curation and provenance</h6>
+                        <p class="small text-muted mb-2">The Journal of Documentation manuscript examines evidence and release decisions for symbolic scores. Author review and source-specific checks remain. The quality-control technical report is a separate output in preparation.</p>
+
+                    </div></div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body">
-                            <span class="badge bg-secondary mb-3">Manuscript route</span>
-                            <h6 class="fw-bold">Full research article</h6>
-                            <p class="small text-muted mb-0">A full-length article on rights-aware symbolic-music infrastructure and FAIR publication gates. No acceptance is claimed here.</p>
-                        </div>
-                    </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body">
+                        <span class="badge bg-secondary mb-3">Author review · not submitted</span>
+                        <h6 class="fw-bold">Digital Verdi</h6>
+                        <p class="small text-muted mb-2">Two texts were prepared in September: a corpus/data report and a companion historical and source-critical article. Coauthor review, publication venues and the scope of any data release remain open.</p>
+
+                    </div></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body">
+                        <span class="badge bg-secondary mb-3">Prepared · not submitted</span>
+                        <h6 class="fw-bold">The Graveyard of Notations</h6>
+                        <p class="small text-muted mb-2">A revised manuscript on digital music encoding, format loss and preservation was prepared for Humanities on 30 October. It is a conceptual and documentary study; its synthetic examples are not a converter-performance benchmark.</p>
+
+                    </div></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm"><div class="card-body">
+                        <span class="badge bg-primary mb-3">Proposal accepted</span>
+                        <h6 class="fw-bold">Explainable AI for Cultural Heritage Music Corpora</h6>
+                        <p class="small text-muted mb-2">IntechOpen invited a full chapter following proposal acceptance recorded in September. The full manuscript is due 4 December 2026 and still requires submission and review. The chapter itself is not yet accepted or published.</p>
+
+                    </div></div>
                 </div>
             </div>
+            <div class="card border-0 bg-light mb-5"><div class="card-body">
+                <h5 class="h6 fw-bold">Related research · historical music lexicography</h5>
+                <p class="small text-muted">The Lexicon C19 work belongs to the wider musicology/DH portfolio and is listed separately from the core MELODY outputs.</p>
+                <ul class="small mb-2">
+                    <li><strong>A Multilingual Corpus of Historical Music Lexicography from the Long Nineteenth Century</strong> — <em>Data</em>: accepted 18 September 2026 according to the received production proofs. Final article DOI and publication date are not yet confirmed in the project record.</li>
+                    <li><strong>What historical music dictionaries become as data</strong> — <em>Heritage</em>: submitted; no acceptance recorded.</li>
+                </ul>
+                <a href="https://doi.org/10.5281/zenodo.22207277" target="_blank" rel="noopener noreferrer" class="small">Published supporting dataset · Lexicon C19 v3.2.1</a>
+            </div></div>
 
             <h4 class="fw-bold mb-4">Research Repositories</h4>
             
@@ -482,7 +516,7 @@
                         <h6 class="mb-1 fw-bold">Melody Forge: An Instruction-Tuning Factory for Symbolic Music LLMs</h6>
                         <span class="badge bg-success">Software</span>
                     </div>
-                    <p class="mb-1 small text-muted">HAL hal-05638223 · Deposited: 2026-05-30</p>
+                    <p class="mb-1 small text-muted">HAL hal-05638223 · Software deposit</p>
                     <p class="mb-0 small text-muted">Normalization, symbolic-format conversion, and instruction-data preparation for music-language-model work.</p>
                 </a>
                 <a href="https://hal.science/hal-05610105" target="_blank" rel="noopener noreferrer" class="list-group-item list-group-item-action p-3">
@@ -490,7 +524,7 @@
                         <h6 class="mb-1 fw-bold">Redefining AutoML for the Digital Humanities</h6>
                         <span class="badge bg-secondary">Report</span>
                     </div>
-                    <p class="mb-1 small text-muted">hal-05610105v1 · Released: 2026-05-02</p>
+                    <p class="mb-1 small text-muted">hal-05610105v1 · Technical report</p>
                 </a>
             </div>
 
@@ -508,7 +542,7 @@
                                     <small class="text-muted">Sept. 2026</small>
                                 </div>
                                 <h6 class="fw-bold text-dark">HARMONIA Exemplar Payload Release</h6>
-                                <p class="x-small text-muted mb-1">100 rights-cleared OpenScore Lieder records for research and evaluation.</p>
+                                <p class="x-small text-muted mb-1">100 OpenScore Lieder records with provenance and release-decision documentation.</p>
                                 <p class="x-small text-muted mb-0">DOI: 10.5281/zenodo.22249530 · Concept DOI: 10.5281/zenodo.22249529</p>
                             </div>
                         </div>
@@ -586,7 +620,7 @@
 <footer class="text-center">
     <div class="container">
         <hr>
-        <p>MELODY Project · ANR-24-CE38-0010 · 2025–2027</p>
+        <p>MELODY Project · ANR-24-IAS1-0001</p>
         <p class="x-small">Sorbonne Center for Artificial Intelligence (SCAI) · IReMus · ISIR · LIP6</p>
     </div>
 </footer>
